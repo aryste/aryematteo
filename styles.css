@@ -809,6 +809,10 @@ footer p {
         margin-bottom: 30px;
     }
     
+    .info-section h3 {
+        text-align: center;
+    }
+    
     .info-section p {
         font-size: 0.95rem;
     }
