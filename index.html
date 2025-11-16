@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrimonio di Ary e Matteo!</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Force scroll to top immediately
+        window.history.scrollRestoration = 'manual';
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">A+M</div>
+        <button class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-menu">
+            <li><a href="#dove-quando" onclick="closeMenu()">Dove e Quando</a></li>
+            <li><a href="#voli" onclick="closeMenu()">Voli</a></li>
+            <li><a href="#hotel" onclick="closeMenu()">Hotel</a></li>
+            <li><a href="#mappa" onclick="closeMenu()">Mappa</a></li>
+            <li><a href="#dress-code" onclick="closeMenu()">(No) Dress code</a></li>
+            <li><a href="#busta" onclick="closeMenu()">BBUSTA</a></li>
+            <li class="mobile-only"><a href="#rsvp" onclick="closeMenu()">RSVP</a></li>
+        </ul>
+        <a href="#rsvp" class="nav-rsvp-btn desktop-only">RSVP</a>
+    </nav>
+    
+    <header>
+        <div class="header-images-grid">
+            <img src="wedding-photo.jpg" alt="Wedding Photo 1" class="header-img">
+            <img src="wedding-photo-2.JPG" alt="Wedding Photo 2" class="header-img">
+            <img src="wedding-photo-3.JPG" alt="Wedding Photo 3" class="header-img">
+        </div>
+        <div class="header-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img src="wedding-photo.jpg" alt="Wedding Photo 1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="wedding-photo-2.JPG" alt="Wedding Photo 2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="wedding-photo-3.JPG" alt="Wedding Photo 3">
+                </div>
+            </div>
+            <button class="carousel-btn prev" onclick="moveSlide(-1)">‹</button>
+            <button class="carousel-btn next" onclick="moveSlide(1)">›</button>
+            <div class="carousel-dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+        <div class="header-overlay">
+            <p class="header-text">ovvero: raga, ci sposiamo - AAAAAAAAAH - venite a spaccarvi con noi? ❤</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="dove-quando" class="info-section">
+            <div class="info-section-content">
+                <h2>Uellaaa, quando?</h2>
+                <h3 class="date-header">Domenica 21 Giugno 2026, ore 12</h3>
+                <p class="location-subtitle">Pelham House, Lewes, UK<br>(programma della giornata da confermarsi)</p>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2517.7771221884786!2d0.0070074763607628834!3d50.87232577167582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df636475ffd7ed%3A0x9fe0906b51ae4ba!2sPelham%20House!5e0!3m2!1sen!2suk!4v1763216090649!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="voli" class="info-section">
+            <div class="info-section-content">
+                <h2>Figo! Ma dove devo volare e quando?</h2>
+                <p>L'aeroporto che vi consigliamo è quello di <strong>Londra Gatwick (LGW)</strong>, che si trova a circa 30 minuti di treno diretto per Brighton, e circa 45 minuti di treno diretto per Lewes.</p>
+                <p>Dall'Italia, la compagnia con più voli disponibili per LGW é <strong>EasyJet</strong>.</p>
+                <p>Se arrivate da Londra, perchè avete scelto un altro aeroporto o perchè vi siete concessi qualche giorno nella capitale, Lewes è raggiungibile dalla stazione di <strong>London Victoria</strong> in circa 1 ora con treno diretto. Attenzione però! I treni inglesi non sono affidabili come una volta, quindi assicuratevi di pianificare bene il vostro viaggio!</p>
+                <p>Dato che il matrimonio si svolgerà Domenica 21 Giugno, vi consigliamo di volare almeno il giorno prima e prevedere la partenza per il Lunedì!</p>
+            </div>
+        </section>
+
+        <section id="hotel" class="info-section">
+            <div class="info-section-content">
+                <h2>Ok, ma dove dormo?</h2>
+                <p>Per la notte del matrimonio, ovvero quella tra Domenica 21 Giugno e Lunedì 22 Giugno, se volete, potete essere nostri ospiti a Pelham House, dove si svolgeranno cerimonia e ricevimento - se desiderate una camera dove crollare dopo i festeggiamenti, ricordate di specificarlo nel vostro RSVP! (sì, sì, la paghiamo noi!).</p>
+                <p>Per la notte precedente, o se preferite soggiornare altrove per tutto il vostro viaggio, ecco alcune proposte:</p>
+                
+                <h3><a href="https://maps.app.goo.gl/NKsSREoQt8G1o2n38" target="_blank"><u>Lewes</u></a></h3>
+                <p>(Distanza dalla location: 8-15 minuti a piedi, 3-5 minuti in Uber)</p>
+                <p>Lewes è la cittadina in cui si terrà il matrimonio. È una cittadina molto affascinante, quiet vibe. Ideale se volete essere vicini alla location del matrimonio (raggiungibile a piedi da pressochè qualsiasi hotel) e se volete stare tranquilli tra le verdi colline del Sussex.</p>
+                <p><a href="https://www.premierinn.com/gb/en/hotels/england/east-sussex/lewes/lewes-town-centre.html?cid=KNC_G_Hotel:UKC_User:UKC_Lang:EN_Cat:BRD-DestinationT3|SouthEastEngland&adgroupID=175430009951&keyword=premier%20inn%20lewes&matchtype=e&gad_source=1&gad_campaignid=22055909174&gclid=Cj0KCQiA5uDIBhDAARIsAOxj0CFYF10KY2-yTO_cC4k4_0IcF7cxKdg3A67EEdTXSGkBMzq8QXhYmiwaAj5SEALw_wcB&BRAND=PI" target="_blank"><strong><u>Premier Inn Lewes</u></strong></a>: Questo è l'albergo più vicino al luogo del matrimonio (circa 8 minuti a piedi).</p>
+                <p><a href="https://www.booking.com/searchresults.it.html?ss=Lewes%2C+East+Sussex%2C+Regno+Unito&ssne=Brighton+%26+Hove&ssne_untouched=Brighton+%26+Hove&label=gen173nr-10CAEoggI46AdIM1gEaFCIAQGYATO4AQfIAQzYAQPoAQH4AQGIAgGoAgG4AqzPvsgGwAIB0gIkOTgyMjNiZjktOGFhMC00MDkzLTg1ZWEtMDRhOTU4NmJhOTM32AIB4AIB&aid=304142&lang=it&sb=1&src_elem=sb&src=searchresults&dest_id=-2601070&dest_type=city&ac_position=0&ac_click_type=b&ac_langcode=it&ac_suggestion_list_length=5&search_selected=true&search_pageview_id=45d965689d451008&ac_meta=GhA0NWQ5NjU2ODlkNDUxMDA4IAAoATICaXQ6BWxld2VzQABKAFAA&checkin=2026-06-20&checkout=2026-06-21&group_adults=2&no_rooms=2&group_children=0" target="_blank"><strong><u>Altri hotel a Lewes</u></strong></a>: Essendo Lewes una piccola cittadina, le opzioni per gli hotel sono limitate. Cercate "Lewes, East Sussex, Regno Unito" su Booking per le opzioni disponibili.</p>
+                
+                <h3><a href="https://maps.app.goo.gl/HnHnP2PQeQurUDVY7" target="_blank"><u>Brighton</u></a></h3>
+                <p>(Distanza dalla location: circa 15 minuti in treno o Uber)</p>
+                <p>A differenza di Lewes, Brighton è una cittadina più grossa - e decisamente più movimentata! Se volete un po' piú di movida, una scelta di hotel molto più ampia e stare vicino al mare (basta che poi non vi lamentiate dell'acqua!), Brighton è la scelta giusta. Ci sono tantissimi hotel disponibili di diverse categorie in città, quindi potete scegliere quello più adatto a voi - la grande maggior parte degli hotel si trova a breve distanza dalla stazione, ma fate comunque un check su Google Maps prima di prenotare :)</p>
+                <p><a href="https://www.booking.com/searchresults.it.html?ss=Brighton+%26+Hove%2C+Contea+Storica+del+Sussex%2C+Regno+Unito&ssne=Lewes&ssne_untouched=Lewes&label=gen173nr-10CAEoggI46AdIM1gEaFCIAQGYATO4AQfIAQzYAQPoAQH4AQGIAgGoAgG4AqzPvsgGwAIB0gIkOTgyMjNiZjktOGFhMC00MDkzLTg1ZWEtMDRhOTU4NmJhOTM32AIB4AIB&aid=304142&lang=it&sb=1&src_elem=sb&src=index&dest_id=-2590884&dest_type=city&ac_position=0&ac_click_type=b&ac_langcode=it&ac_suggestion_list_length=5&search_selected=true&search_pageview_id=46506564861e119a&ac_meta=GhA0NjUwNjU2NDg2MWUxMTlhIAAoATICaXQ6CGJyaWdodG9uQABKAFAA&checkin=2026-06-20&checkout=2026-06-21&group_adults=2&no_rooms=2&group_children=0" target="_blank"><strong><u>Cerca hotel a Brighton</u></strong></a></p>
+                
+                <h3>AirBnB e appartamenti</h3>
+                <p>Vale lo stesso discorso degli hotel: semplicemente controllate la distanza dalle stazioni o dalla venue, e sbizzarritevi nella scelta!</p>
+                <p><a href="https://www.airbnb.it/s/Brighton--Regno-Unito/homes?refinement_paths%5B%5D=%2Fhomes&place_id=ChIJ_2JMjnqPdUgR5dlcLbSqgKk&location_bb=Qkuo%2F7wiV65CSy5WvnzxvA%3D%3D&acp_id=t-g-ChIJ_2JMjnqPdUgR5dlcLbSqgKk&date_picker_type=calendar&checkin=2026-06-20&checkout=2026-06-21&adults=2&search_type=autocomplete_click" target="_blank"><strong><u>Cerca AirBnB</u></strong></a></p>
+                
+                <h3>Altri luoghi raggiungibili tramite treno</h3>
+                <p>Se desiderate ulteriori opzioni più lontane dal centro, cercate intorno alle seguenti stazioni intermedie tra Brighton e Lewes:</p>
+                <ul>
+                    <li><strong>Brighton London Road</strong></li>
+                    <li><strong>Falmer</strong></li>
+                    <li><strong>Moulsecoomb</strong></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="mappa" class="info-section">
+            <div class="info-section-content">
+                <h2>Mappa</h2>
+                <p>Abbiamo creato una mappa con luoghi rilevanti all'evento, come la location del matrimonio, stazioni ferroviarie, etc. <a href="https://maps.app.goo.gl/1m9sEK5M55oBaHi79" target="_blank"><u>Clicca per vedere la mappa qui!</u></a></p>
+            </div>
+        </section>
+
+        <section id="dress-code" class="info-section">
+            <div class="info-section-content">
+                <h2>Ok, ci sta. Ma come mi vesto?!</h2>
+                <p>Zero dress code, ovviamente (ma ci avete visto?). Per quanto riguarda il tempo, dovrete affidarvi alla capricciosa Inghilterra - potrebbero fare 15 gradi così come 28 - per cui il consiglio è mantenersi estivi, e per le donzelle, qualcosa per coprire le spalle. La maggior parte del matrimonio si svolgerà all'interno, quindi no stress!</p>
+            </div>
+        </section>
+
+        <section id="busta" class="info-section">
+            <div class="info-section-content">
+                <h2>Ma vi devo pure fare il regalo?</h2>
+                <p>No! O meglio, non necessariamente! Come si dice in questi casi, "La vostra presenza è il regalo più gradito", e non è solo una frase fatta - ci importa molto di più che voi ci siate che di qualsiasi regalo! Tuttavia, se insistete, ci volete particolarmente bene o avete segretamente vinto alla lotteria di recente, potete contribuire <del>alle svariate sedute di terapia che ci serviranno dopo aver organizzato questo matrimonio</del> alla nostra luna di miele cliccando il link qui sotto!</p>
+                <a href="https://revolut.me/matteo_tosi" target="_blank" class="gift-button">Facce la BBUSTA</a>
+            </div>
+        </section>
+
+        <section id="rsvp" class="info-section">
+            <div class="info-section-content">
+                <h2>Vi abbiamo convinto?</h2>
+                <p><strong>Daje, prenotate sto aereo che ci divertiamo!</strong></p>
+                <p>Vi chiediamo gentilmente di rispondere a questo bislacco invito digitale possibilmente entro e non oltre il <strong>5 Dicembre 2025</strong> - se prima anche meglio, la conoscete tutti la sposa no? :)</p>
+                <a href="https://forms.gle/kdmcqijwVnas2xJW7" target="_blank" class="gift-button">RSVP</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Non vediamo l'ora di festeggiare con voi! ❤️</p>
+    </footer>
+    
+    <script>
+        let slideIndex = 1;
+        
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-menu');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+        
+        function closeMenu() {
+            const menu = document.querySelector('.nav-menu');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+        
+        function moveSlide(n) {
+            showSlide(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+        }
+        
+        function showSlide(n) {
+            let slides = document.getElementsByClassName("carousel-slide");
+            let dots = document.getElementsByClassName("dot");
+            
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            
+            slides[slideIndex - 1].classList.add("active");
+            dots[slideIndex - 1].classList.add("active");
+        }
+        
+        // Scroll to top on page load
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 0);
+        });
+    </script>
+</body>
+</html>
