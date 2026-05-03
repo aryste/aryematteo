@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luna di Miele - Ary e Matteo</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background-color: #c4bdbc;
+            padding-top: 90px;
+        }
+
+        /* ── NAV ── */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 180px;
+            right: 180px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+            height: 70px;
+            gap: 20px;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #000;
+            text-decoration: none;
+            font-family: 'Helvetica Neue', 'Arial', sans-serif;
+        }
+
+        .nav-back {
+            text-decoration: none;
+            color: #000;
+            font-size: 0.95rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-back:hover { opacity: 0.6; }
+
+        /* ── MAIN ── */
+        main {
+            padding: 0 180px 0 180px;
+            background-color: #c4bdbc;
+        }
+
+        .info-section {
+            background: #ffffff;
+            padding: 90px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.08), 0 15px 55px rgba(0,0,0,0.06);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .info-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+            animation: slideIn 3s ease-in-out infinite;
+        }
+
+        @keyframes slideIn {
+            0%, 100% { left: -100%; }
+            50% { left: 100%; }
+        }
+
+        .info-section:hover {
+            transform: translateY(-2px);
+            margin-bottom: 32px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12), 0 20px 70px rgba(0,0,0,0.08);
+        }
+
+        .info-section-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 40px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.1s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .info-section h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: #000;
+            letter-spacing: 8px;
+            font-family: 'Helvetica Neue', 'Arial', sans-serif;
+            text-align: center;
+            text-transform: uppercase;
+            transition: letter-spacing 0.3s ease;
+        }
+
+        .info-section:hover h2 {
+            letter-spacing: 10px;
+        }
+
+        .info-section p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #000;
+            line-height: 1.8;
+            text-align: justify;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── DETAIL ROWS ── */
+        .details-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .detail-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border: 1px solid #e0e0e0;
+            padding: 16px 18px;
+            background: #fafafa;
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .detail-row:hover {
+            border-color: #bbb;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+        }
+
+        .detail-icon {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+        }
+
+        .detail-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.6;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .detail-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .detail-label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 3px;
+        }
+
+        .detail-value {
+            display: block;
+            font-size: 1rem;
+            font-weight: 300;
+            color: #000;
+            letter-spacing: 0.5px;
+            word-break: break-all;
+        }
+
+        .detail-value.multiline {
+            white-space: pre-line;
+            line-height: 1.6;
+        }
+
+        .copy-btn {
+            flex-shrink: 0;
+            background: transparent;
+            border: 1px solid #000;
+            padding: 8px 16px;
+            cursor: pointer;
+            color: #000;
+            font-family: 'Helvetica Neue', 'Arial', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .copy-btn svg {
+            width: 13px;
+            height: 13px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .copy-btn.copied {
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 100px 20px 80px;
+            background-color: #fff;
+            font-size: 1rem;
+            color: #000;
+            position: relative;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+            z-index: 10;
+        }
+
+        footer p {
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            body { padding-top: 60px; }
+
+            .navbar {
+                left: 0;
+                right: 0;
+                padding: 10px 20px;
+                height: 60px;
+            }
+
+            main { padding: 0 20px; }
+
+            .info-section { padding: 60px 20px; }
+
+            .info-section-content { padding: 0 20px; }
+
+            .info-section h2 {
+                font-size: 1.3rem;
+                letter-spacing: 3px;
+                margin-bottom: 30px;
+            }
+
+            .info-section p { font-size: 0.95rem; }
+
+            .copy-btn span { display: none; }
+
+            footer { padding: 70px 20px 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">A+M</a>
+        <a href="index.html" class="nav-back">← Torna all'invito</a>
+    </nav>
+
+    <main>
+        <section class="info-section">
+            <div class="info-section-content">
+                <h2>Coordinate bancarie</h2>
+                <p>Se volete farci un regalo, potete contribuire alla nostra luna di miele tramite bonifico bancario con le coordinate qui sotto. Ogni dettaglio è copiabile con un clic!</p>
+
+                <div class="details-grid">
+
+                    <!-- Beneficiary -->
+                    <div class="detail-row">
+                        <div class="detail-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <div class="detail-text">
+                            <span class="detail-label">Beneficiary</span>
+                            <span class="detail-value" id="val-beneficiary">Arianna Marina Stefanoni</span>
+                        </div>
+                        <button class="copy-btn" onclick="copyField('val-beneficiary', this)">
+                            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            <span>Copia</span>
+                        </button>
+                    </div>
+
+                    <!-- IBAN -->
+                    <div class="detail-row">
+                        <div class="detail-icon">
+                            <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                        </div>
+                        <div class="detail-text">
+                            <span class="detail-label">IBAN</span>
+                            <span class="detail-value" id="val-iban">GB02 REVO 0099 7050 9510 36</span>
+                        </div>
+                        <button class="copy-btn" onclick="copyField('val-iban', this)">
+                            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            <span>Copia</span>
+                        </button>
+                    </div>
+
+                    <!-- BIC / SWIFT -->
+                    <div class="detail-row">
+                        <div class="detail-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
+                        <div class="detail-text">
+                            <span class="detail-label">BIC / SWIFT code</span>
+                            <span class="detail-value" id="val-bic">REVOGB21</span>
+                        </div>
+                        <button class="copy-btn" onclick="copyField('val-bic', this)">
+                            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            <span>Copia</span>
+                        </button>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="detail-row" style="align-items: flex-start; padding-top: 18px; padding-bottom: 18px;">
+                        <div class="detail-icon" style="margin-top: 2px;">
+                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div class="detail-text">
+                            <span class="detail-label">Address</span>
+                            <span class="detail-value multiline" id="val-address">Revolut Ltd
+30 South Colonnade, E14 5HX, London, United Kingdom</span>
+                        </div>
+                        <button class="copy-btn" onclick="copyField('val-address', this)" style="margin-top: 2px;">
+                            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            <span>Copia</span>
+                        </button>
+                    </div>
+
+                    <!-- Correspondent BIC -->
+                    <div class="detail-row">
+                        <div class="detail-icon">
+                            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        </div>
+                        <div class="detail-text">
+                            <span class="detail-label">Correspondent BIC</span>
+                            <span class="detail-value" id="val-corbic">CHASGB2L</span>
+                        </div>
+                        <button class="copy-btn" onclick="copyField('val-corbic', this)">
+                            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            <span>Copia</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Non vediamo l'ora di festeggiare con voi! ❤️</p>
+    </footer>
+
+    <script>
+        function copyField(id, btn) {
+            const text = document.getElementById(id).innerText.trim();
+            navigator.clipboard.writeText(text).then(() => {
+                btn.classList.add('copied');
+                const span = btn.querySelector('span');
+                const svg = btn.querySelector('svg');
+                svg.innerHTML = '<polyline points="20 6 9 17 4 12"/>';
+                if (span) span.textContent = 'Copiato!';
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    svg.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>';
+                    if (span) span.textContent = 'Copia';
+                }, 2000);
+            });
+        }
+    </script>
+
+</body>
+</html>
